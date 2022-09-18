@@ -17,8 +17,9 @@ let current_data: Data = {
 function ESP_DataHandler (req: any, res: any) {
     if(req.method === "GET") {
         res.status(200).json(current_data);
-    } else if (req.method === "POST") {
-        console.log(req);
+    } else if (req.method == "POST") {
+        console.log(req); 
+        res.status(201);
     }
 }
 
