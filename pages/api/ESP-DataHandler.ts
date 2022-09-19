@@ -1,26 +1,29 @@
+import { NextApiRequest, NextApiResponse } from "next";
+
 type Data = {
     temperature: number;
     humidity: number;
-    peltier_cold_temp: number;
-    peltier_hot_temp: number;
-    reservoir_lvl: string;
+    peltier_cold: number;
+    peltier_warm: number;
+    reservoir_level: string;
 }
 
 let current_data: Data = {
     temperature: 0,
     humidity: 0,
-    peltier_cold_temp: 0,
-    peltier_hot_temp: 0,
-    reservoir_lvl: "N"
+    peltier_cold: 0,
+    peltier_warm: 0,
+    reservoir_level: 'N'
 }
 
-function ESP_DataHandler (req: any, res: any) {
+function ESP_API (req: NextApiRequest, res: NextApiResponse) {
     if(req.method === "GET") {
         res.status(200).json(current_data);
-    } else if (req.method == "POST") {
-        console.log(req); 
-        res.status(201);
+    } else if (req.method === "POST") {
+        current_data = req.body;
+        console.log(current_data);
+        res.status(201).send({message: 'DataHandler'});
     }
 }
 
-export default ESP_DataHandler;
+export default ESP_API; 
