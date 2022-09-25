@@ -5,16 +5,16 @@ type Data = {
     humidity: number;
     peltier_cold: number;
     peltier_warm: number;
-    reservoir_level: string;
-}
+    water_level: string;
+};
 
 let current_data: Data = {
     temperature: 0,
     humidity: 0,
     peltier_cold: 0,
     peltier_warm: 0,
-    reservoir_level: 'N'
-}
+    water_level: 'N'
+};
 
 function ESP_API (req: NextApiRequest, res: NextApiResponse) {
     if(req.method === "GET") {
