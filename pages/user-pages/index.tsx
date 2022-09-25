@@ -28,7 +28,7 @@ function HomePage( { data }: any ) {
 } 
 
 export async function getStaticProps() {
-    const res = await fetch('https://hydro-farm-app.vercel.app/ESP-DadaHandler');
+    const res = await fetch('https://hydro-farm-app.vercel.app/api/ESP-DadaHandler');
     const data = await res.json();
 
     console.log(data); 
