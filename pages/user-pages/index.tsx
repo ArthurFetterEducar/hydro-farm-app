@@ -1,3 +1,8 @@
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+
 function HomePage( { data }: any ) {
     /* Adicionar medições para cada um dos sensores/atuadores */
     return (
@@ -28,12 +33,11 @@ function HomePage( { data }: any ) {
 } 
 
 export async function getServerSideProps() {
-    const res = await fetch('https://hydro-farm-app.vercel.app/ESP-DadaHandler');
-    const data = await res.json();
+    const measure = await prisma.teste.findMany();
 
-    console.log(data); 
+    console.log(measure); 
 
-    return { props: { data } };
+    return { props: { measure } };
 }
 
 export default HomePage; 

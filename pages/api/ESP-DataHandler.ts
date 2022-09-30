@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
     temperature: number;
@@ -18,10 +18,12 @@ let current_data: Data = {
 
 function ESP_API (req: NextApiRequest, res: NextApiResponse) {
     if(req.method === "GET") {
+        console.log()
         res.status(200).json(current_data);
     } else if (req.method === "POST") {
         current_data = req.body;
         console.log(current_data);
+
         res.status(201).send({message: 'DataHandler'});
     }
 }
