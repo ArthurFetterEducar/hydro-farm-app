@@ -3,6 +3,11 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 
+BigInt.prototype["toJSON"] = function () {
+    return this.toString();
+};
+
+
 function HomePage( { data }: any ) {
     /* Adicionar medições para cada um dos sensores/atuadores */
     return (
@@ -32,12 +37,13 @@ function HomePage( { data }: any ) {
     )
 } 
 
-export async function getServerSideProps() {
-    const measure = await prisma.teste.findMany();
+export async function getStaticProps() {
+    const measure = await prisma.teste.findFirst({ where: {id: 1} });
+    const data = await JSON.parse(JSON.stringify(measure));
 
-    console.log(measure); 
+    console.log(data); 
 
-    return { props: { measure } };
+    return { props: { data } };
 }
 
 export default HomePage; 
