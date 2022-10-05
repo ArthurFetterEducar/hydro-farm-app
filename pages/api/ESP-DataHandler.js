@@ -1,14 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-
-type Data = {
-    temperature: number;
-    humidity: number;
-    peltier_cold: number;
-    peltier_warm: number;
-    water_level: string;
-};
-
-let current_data: Data = {
+let current_data = {
     temperature: 0,
     humidity: 0,
     peltier_cold: 0,
@@ -16,7 +6,7 @@ let current_data: Data = {
     water_level: 'N'
 };
 
-function ESP_API (req: NextApiRequest, res: NextApiResponse) {
+function ESP_API (req, res) {
     if(req.method === "GET") {
         console.log()
         res.status(200).json(current_data);

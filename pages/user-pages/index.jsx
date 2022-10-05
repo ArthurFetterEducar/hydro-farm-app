@@ -8,8 +8,7 @@ BigInt.prototype["toJSON"] = function () {
 };
 
 
-function HomePage( { data }: any ) {
-    /* Adicionar medições para cada um dos sensores/atuadores */
+function HomePage( { data } ) {
     return (
         <>
         <h1>Live Data:</h1>

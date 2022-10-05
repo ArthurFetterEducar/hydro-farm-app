@@ -1,5 +1,5 @@
 function ESP_dummy () {    
-    const ESP_handleData = async (e: any) => {
+    const ESP_handleData = async (e) => {
         console.log('ESP-dummy');
         e.preventDefault();
         
