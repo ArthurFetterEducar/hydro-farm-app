@@ -6,7 +6,7 @@ export default function Navbar() {
             <div className="container-fluid">
                 {/*Logo*/}
                 <span className="navbar-brand">AMG</span>
-                {/*Logo*/}
+                {/*/Logo*/}
 
                 {/*Menu Drop-Down*/}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -23,9 +23,12 @@ export default function Navbar() {
                     <li className="nav-item">
                         <a className="nav-link disabled">Sobre</a>
                     </li>
+                    <li className="nav-item">
+                        <a className="nav-link disabled">Contatos</a>
+                    </li>
                     </ul>
                 </div>
-                {/*Menu Drop-Down*/}
+                {/*/Menu Drop-Down*/}
             </div>
         </nav> 
         

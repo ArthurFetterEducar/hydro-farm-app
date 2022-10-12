@@ -2,20 +2,21 @@
 /*background*/
 .background {
     min-height: 82vh;
-    background-color: #294535;
+    background-color: #D9CAB3;
 }
 
 /*status board*/
 .stats_board{
-    background-color: white;
+    background-color: #F6F6F6;
 
     min-height: 82vh;
     width: 50%;
 
     margin: 0 auto;
 }
+
 /*Para aparelhos menores, informações ocupam toda a tela*/
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1024px) {
     .stats_board {
         width: 100%;
         margin: 0;
@@ -24,37 +25,33 @@
 
 /*Título*/
 .title_box {
-    width: 100%;
+    margin: auto;
+    width: 70%;
 
-    padding: 1%;    
-
-    border: solid;
-    border-color: black;
-    border-width: 5px;
+    padding: 3%;
 }
 
 .board_title {
-    padding-left: 3%;
     text-align: center;
 }
 
 /*Estatísticas*/
 .board_body {
-    
+
+}
+
+.stats_text {
+    padding: 3%;
 }
 
 .stats_box {
-    text-align: center;
+    text-align: start;
 
-    border: solid;
-    border-color: black;
-    border-width: 0 0 1px;
+    border: dotted;
+    border-color: #6D9886;
+    border-width: 3px 0px 0px;
 }
 
 .data_box {
     text-align: center;
-
-    border: solid;
-    border-color: black;
-    border-width: 0 0 1px ;
 }
