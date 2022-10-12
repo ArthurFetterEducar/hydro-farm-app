@@ -12,6 +12,9 @@ BigInt.prototype["toJSON"] = function () {
 
 
 function HomePage( { data } ) {
+    const estado_bomba = data.Pump_State ? 'On' : 'Off';
+    const nivel_agua = data.Waterl_Level ? 'Ok' : 'N Ok'
+
     return (
         <div className={styles.background}>
 
@@ -32,14 +35,14 @@ function HomePage( { data } ) {
                         <h3> Temperatura </h3>    
                     </div>
                     <div className={styles.data_box + ' col-1'}>
-                        <h3> { data.Temperature } </h3>    
+                        <h3> { data.Temperature + '°C'} </h3>    
                     </div>
 
                     <div className={styles.stats_box + ' col-5'}>
                         <h3> Humidade </h3>
                     </div>
                     <div className={styles.data_box + ' col-1'}>
-                        <h3> {data.Humidity } </h3>
+                        <h3> {data.Humidity + '%'} </h3>
                     </div>
                 </div>
                 {/*/Primeira linha*/}
@@ -50,14 +53,14 @@ function HomePage( { data } ) {
                         <h3> Peltier Frio </h3>
                     </div>
                     <div className={styles.data_box + ' col-1'}>
-                        <h3> { data.Peltier_Cold_Temperature } </h3>
+                        <h3> { data.Peltier_Cold_Temperature + '°C'} </h3>
                     </div>
 
                     <div className={styles.stats_box + ' col-5'}>
                         <h3> Peltier Quente </h3>
                     </div>
                     <div className={styles.data_box + ' col-1'}>
-                        <h3> { data.Petier_Hot_Temperature } </h3>
+                        <h3> { data.Petier_Hot_Temperature + '°C'} </h3>
                     </div>
                 </div>
                 {/*/Segunda linha*/}
@@ -68,14 +71,14 @@ function HomePage( { data } ) {
                         <h3> Nível de água </h3>
                     </div>
                     <div className={styles.data_box + ' col-1'}>
-                        <h3> { data.Waterl_Level } </h3>
+                        <h3> { nivel_agua} </h3>
                     </div>
 
                     <div className={styles.stats_box + ' col-5'}>
-                        <h3> </h3>
+                        <h3> Bomba </h3>
                     </div>
                     <div className={styles.data_box + ' col-1'}>
-                        <h3> </h3>
+                        <h3> { estado_bomba } </h3>
                     </div>
                 </div>
                 {/*/Terceira linha*/}
