@@ -27,10 +27,10 @@ function StatsPage( { data } ) {
         estado_refrigeracao = 'resfriando a estufa';
     }
 
-    if (data.Water_level > 0) {
+    if (data.Water_Level > 0) {
         nivel_agua = 'alto';
     }
-    else if (data.Water_level < 0) {
+    else if (data.Water_Level < 0) {
         nivel_agua = 'baixo';
     }
     else {
