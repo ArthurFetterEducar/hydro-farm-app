@@ -1,0 +1,60 @@
+/*Status page styles*/
+/*background*/
+.background {
+    min-height: 82vh;
+    background-color: #294535;
+}
+
+/*status board*/
+.stats_board{
+    background-color: white;
+
+    min-height: 82vh;
+    width: 50%;
+
+    margin: 0 auto;
+}
+/*Para aparelhos menores, informações ocupam toda a tela*/
+@media only screen and (max-width: 1000px) {
+    .stats_board {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/*Título*/
+.title_box {
+    width: 100%;
+
+    padding: 1%;    
+
+    border: solid;
+    border-color: black;
+    border-width: 5px;
+}
+
+.board_title {
+    padding-left: 3%;
+    text-align: center;
+}
+
+/*Estatísticas*/
+.board_body {
+    
+}
+
+.stats_box {
+    text-align: center;
+
+    border: solid;
+    border-color: black;
+    border-width: 0 0 1px;
+}
+
+.data_box {
+    text-align: center;
+
+    border: solid;
+    border-color: black;
+    border-width: 0 0 1px ;
+}
