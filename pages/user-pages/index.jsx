@@ -1,17 +1,17 @@
-/*Prisma db*/
+/* Prisma db */
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-/*CSS*/
+/* CSS */
 import styles from '../../styles/stats.module.css'
 
-/*Definir a função toJSON para o BigInt, proveniente da base de dados)*/
+/* Definir a função toJSON para o BigInt, proveniente da base de dados) */
 BigInt.prototype["toJSON"] = function () {
     return this.toString();
 };
 
-/*Componente da pagina */
+/* Componente da pagina */
 function StatsPage( { data } ) {
     let estado_bomba = data.Pump_State ? 'ligada' : 'desligada';
     let estado_refrigeracao;
@@ -118,7 +118,7 @@ function StatsPage( { data } ) {
 } 
 
 export async function getStaticProps() {
-    const measure = await prisma.teste.findFirst({ where: {id: 1} });
+    const measure = await prisma.teste.findFirst();
     const data = await JSON.parse(JSON.stringify(measure));
 
     console.log(data); 

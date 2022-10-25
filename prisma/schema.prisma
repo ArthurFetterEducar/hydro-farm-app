@@ -10,12 +10,12 @@ datasource db {
 model teste {
   id                       BigInt    @id @default(autoincrement())
   created_at               DateTime? @default(now()) @db.Timestamptz(6)
-  Temperature              String?
-  Humidity                 String?
-  Petier_Hot_Temperature   Json?     @default("3") @db.Json
-  Petier_Hot_State         Json?     @default("0") @db.Json
-  Peltier_Cold_Temperature Json?     @default("4") @db.Json
-  Peltier_Cold_State       Json?     @default("1") @db.Json
-  Water_Level              String?
-  Pump_State               Json?     @default("1") @db.Json
+  Temperature              Int?
+  Humidity                 Int?
+  Water_Level              Int?
+  Petier_Hot_Temperature   Int?
+  Petier_Hot_State         Boolean?
+  Peltier_Cold_Temperature Int?
+  Peltier_Cold_State       Boolean?
+  Pump_State               Boolean?
 }

@@ -1,7 +1,7 @@
 /*Status page styles*/
 /*background*/
 .background {
-    min-height: 82vh;
+    min-height: 85vh;
     background-color: #D9CAB3;
 }
 
@@ -9,7 +9,7 @@
 .stats_board{
     background-color: #F6F6F6;
 
-    min-height: 82vh;
+    min-height: 85vh;
     width: 50%;
 
     margin: 0 auto;

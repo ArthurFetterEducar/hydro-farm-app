@@ -1,3 +1,7 @@
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
 let current_data = {
     temperature: 0,
     humidity: 0,
@@ -6,15 +10,29 @@ let current_data = {
     water_level: 'N'
 };
 
-function ESP_API (req, res) {
+async function ESP_API (req, res) {
     if(req.method === "GET") {
-        console.log()
+        console.log("Got It");
+
+        const sensorData = await prisma.teste.create({
+            data: {
+                Temperature: "12",
+                Humidity: "22",          
+                Petier_Hot_Temperature: "32", 
+                Petier_Hot_State: "1",
+                Peltier_Cold_Temperature: "11",
+                Peltier_Cold_State: "0",
+                Water_Level: '0', 
+                Pump_State: '1' 
+            }
+        });
+
         res.status(200).json(current_data);
     } else if (req.method === "POST") {
         current_data = req.body;
         console.log(current_data);
 
-        res.status(201).send({message: 'DataHandler'});
+        res.status(201).send({message: 'Data Posted Successfully'});
     }
 }
 
