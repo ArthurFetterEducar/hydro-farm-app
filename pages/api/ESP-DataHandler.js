@@ -39,11 +39,9 @@ async function ESP_API (req, res) {
 
         res.status(201).send({message: 'Data Posted Successfully'});
 
-        // const sensorData = await prisma.teste.create({
-        //     data: req.body
-        // });
-
-        
+        const sensorData = await prisma.teste.create({
+            data: req.body
+        });
     }
 }
 
