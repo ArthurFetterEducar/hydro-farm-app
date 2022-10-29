@@ -119,7 +119,7 @@ function StatsPage( { data } ) {
 export async function getStaticProps() {
     const prisma = new PrismaClient();
 
-    const sensorData = await prisma.teste2.create({
+    const sensorData = await prisma.teste.create({
         data: {
             Temperature: 52.0,
             Humidity: 22.0,         
