@@ -26,7 +26,7 @@ let dummy_data = {
 
 async function ESP_API (req, res) {
     if(req.method === "GET") {
-        let dummy_variable = FindFirstDBRecord();
+        //let dummy_variable = FindFirstDBRecord();
 
         console.log("Got It");
         console.log(req.body);
