@@ -115,7 +115,10 @@ function StatsPage( { data } ) {
     )
 }
 
-export async function postPrisma(){
+
+export async function getStaticProps() {
+    const prisma = new PrismaClient();
+
     const sensorData = await prisma.teste2.create({
         data: {
             Temperature: 52.0,
@@ -128,12 +131,6 @@ export async function postPrisma(){
             Pump_State:false 
         }
     }); 
-}
-
-export async function getStaticProps() {
-    const prisma = new PrismaClient();
-
-    postPrisma();
 
     const measure = await prisma.teste.findFirst();
     const data = await JSON.parse(JSON.stringify(measure));
