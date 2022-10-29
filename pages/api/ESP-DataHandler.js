@@ -26,10 +26,8 @@ let dummy_data = {
 
 async function ESP_API (req, res) {
     if(req.method === "GET") {
-        const sensorData = await prisma.teste2.create({
-            data: {
-                dummy_data
-            }
+        const sensorData = await prisma.teste2.findFirst({
+            where: { id: 1 }
         });
 
         console.log("Got It");
