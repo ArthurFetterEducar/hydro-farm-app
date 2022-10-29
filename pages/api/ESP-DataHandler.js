@@ -26,9 +26,7 @@ let dummy_data = {
 
 async function ESP_API (req, res) {
     if(req.method === "GET") {
-        const sensorData = await prisma.teste2.findFirst({
-            where: { id: 1 }
-        });
+        let dummy_variable = FindFirstDBRecord();
 
         console.log("Got It");
         console.log(req.body);
@@ -69,6 +67,14 @@ async function ESP_API (req, res) {
         //     }
         // });
     }
+}
+
+export async function FindFirstDBRecord() {
+    const sensorData = await prisma.teste2.findFirst({
+        where: { id: 1 }
+    });
+
+    return sensorData;
 }
 
 export default ESP_API; 
