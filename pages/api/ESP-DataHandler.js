@@ -14,14 +14,14 @@ let current_data = {
 };
 
 let dummy_data = {
-    Temperature: '52',
-    Humidity: '22',          
-    Petier_Hot_Temperature: '32', 
-    Petier_Hot_State: 'true',
-    Peltier_Cold_Temperature: '23',
-    Peltier_Cold_State: 'false',
-    Water_Level: '0', 
-    Pump_State: 'false' 
+    Temperature: 52.0,
+    Humidity: 22.0,         
+    Petier_Hot_Temperature: 32.0, 
+    Petier_Hot_State: 1,
+    Peltier_Cold_Temperature: 23.0,
+    Peltier_Cold_State: 0,
+    Water_Level: 0, 
+    Pump_State: 0 
 };
 
 async function ESP_API (req, res) {
