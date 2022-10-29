@@ -3,29 +3,38 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 let current_data = {
-    Temperature: 12,
+    Temperature: 0,
+    Humidity: 0,          
+    Petier_Hot_Temperature: 0, 
+    Petier_Hot_State: false,
+    Peltier_Cold_Temperature: 0,
+    Peltier_Cold_State: false,
+    Water_Level: 0, 
+    Pump_State: false 
+};
+
+let dummy_data = {
+    Temperature: 52,
     Humidity: 22,          
     Petier_Hot_Temperature: 32, 
     Petier_Hot_State: true,
-    Peltier_Cold_Temperature: 11,
+    Peltier_Cold_Temperature: 23,
     Peltier_Cold_State: false,
     Water_Level: 0, 
-    Pump_State: true 
+    Pump_State: false 
 };
-
 async function ESP_API (req, res) {
     if(req.method === "GET") {
         console.log("Got It");
         console.log(req.body);
         console.log(current_data);
-
-        res.status(200).json(current_data);
-
         const sensorData = await prisma.teste.create({
             data: {
-                current_data
+                dummy_data
             }
         });
+
+        res.status(200).json(current_data);
     } else if (req.method === "POST") { 
         current_data = req.body; 
         console.log(current_data); 
