@@ -119,10 +119,6 @@ function StatsPage( { data } ) {
 export async function getStaticProps() {
     const prisma = new PrismaClient();
 
-    const sensorData = await prisma.teste_tres.create({
-        data: {teste: 2}
-    }); 
-
     const measure = await prisma.teste.findFirst();
     const data = await JSON.parse(JSON.stringify(measure));
 
