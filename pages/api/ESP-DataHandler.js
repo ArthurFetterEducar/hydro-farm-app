@@ -37,9 +37,19 @@ async function ESP_API (req, res) {
         current_data = req.body; 
         console.log(current_data); 
 
-        const sensorData = await prisma.teste2.create({
-            data: current_data
+        const sensorData = await prisma.teste.create({
+            data: {
+                Temperature: current_data.Temperature,
+                Humidity: current_data.Humidity,          
+                Petier_Hot_Temperature: current_data.Petier_Hot_Temperature, 
+                Petier_Hot_State: current_data.Petier_Hot_State,
+                Peltier_Cold_Temperature: current_data.Peltier_Cold_Temperature,
+                Peltier_Cold_State: current_data.Peltier_Cold_State,
+                Water_Level: current_data.Water_Level, 
+                Pump_State: current_data.Pump_State 
+            }
         });
+
         res.status(201).send({message: "Data Posted Successfully"}); 
 
         // const sensorData = await prisma.teste2.create({
