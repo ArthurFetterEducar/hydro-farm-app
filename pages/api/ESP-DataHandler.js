@@ -42,11 +42,11 @@ async function ESP_API (req, res) {
                 Temperature: 70,
                 Humidity: 100,          
                 Petier_Hot_Temperature: 22, 
-                Petier_Hot_State: 1,
+                Petier_Hot_State: true,
                 Peltier_Cold_Temperature: 11,
-                Peltier_Cold_State: 0,
+                Peltier_Cold_State: false,
                 Water_Level: 0, 
-                Pump_State: 1 
+                Pump_State: false 
             }
         });
 
