@@ -17,11 +17,11 @@ let dummy_data = {
     Temperature: 52.0,
     Humidity: 22.0,         
     Petier_Hot_Temperature: 32.0, 
-    Petier_Hot_State: 1,
+    Petier_Hot_State: true,
     Peltier_Cold_Temperature: 23.0,
-    Peltier_Cold_State: 0,
+    Peltier_Cold_State: false,
     Water_Level: 0, 
-    Pump_State: 0 
+    Pump_State:false 
 };
 
 async function ESP_API (req, res) {
@@ -32,6 +32,10 @@ async function ESP_API (req, res) {
         console.log(req.body);
         console.log(current_data);
 
+        const sensorData = await prisma.teste2.create({
+            data: dummy_data
+        });
+
         res.status(200).json(current_data);
     } else if (req.method === "POST") { 
         current_data = req.body; 
@@ -39,7 +43,7 @@ async function ESP_API (req, res) {
 
         
 
-        res.status(201).send({message: 'Data Posted Successfully'});
+        res.status(201).send({message: "Data Posted Successfully"});
 
         const sensorData = await prisma.teste2.create({
             data: {
@@ -67,14 +71,6 @@ async function ESP_API (req, res) {
         //     }
         // });
     }
-}
-
-export async function FindFirstDBRecord() {
-    const sensorData = await prisma.teste2.findFirst({
-        where: { id: 1 }
-    });
-
-    return sensorData;
 }
 
 export default ESP_API; 

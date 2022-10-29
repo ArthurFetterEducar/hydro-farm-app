@@ -118,8 +118,6 @@ function StatsPage( { data } ) {
 } 
 
 export async function getStaticProps() {
-    const sensorData = await prisma.teste2.findFirst();
-
     const measure = await prisma.teste.findFirst();
     const data = await JSON.parse(JSON.stringify(measure));
 
