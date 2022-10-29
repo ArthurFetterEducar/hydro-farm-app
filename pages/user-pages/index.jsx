@@ -119,17 +119,8 @@ function StatsPage( { data } ) {
 export async function getStaticProps() {
     const prisma = new PrismaClient();
 
-    const sensorData = await prisma.teste.create({
-        data: {
-            Temperature: 52.0,
-            Humidity: 22.0,         
-            Petier_Hot_Temperature: 32.0, 
-            Petier_Hot_State: true,
-            Peltier_Cold_Temperature: 23.0,
-            Peltier_Cold_State: false,
-            Water_Level: 0, 
-            Pump_State:false 
-        }
+    const sensorData = await prisma.teste_tres.create({
+        data: {teste: 2}
     }); 
 
     const measure = await prisma.teste.findFirst();
