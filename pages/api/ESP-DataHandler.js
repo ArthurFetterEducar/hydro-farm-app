@@ -29,7 +29,7 @@ async function ESP_API (req, res) {
             data: {
                 Temperature:27.0,
                 Humidity:92.0,
-                Watel_Level:1,
+                Water_Level:1,
                 Peltier_Hot_Temperature:26.0,
                 Peltier_Hot_State:true,
                 Peltier_Cold_Temperature:23.0,
