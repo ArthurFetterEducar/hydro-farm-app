@@ -5,8 +5,8 @@ const prisma = new PrismaClient();
 let current_data = {
     Temperature: 0,
     Humidity: 0,          
-    Petier_Hot_Temperature: 0, 
-    Petier_Hot_State: false,
+    Peltier_Hot_Temperature: 0, 
+    Peltier_Hot_State: false,
     Peltier_Cold_Temperature: 0,
     Peltier_Cold_State: false,
     Water_Level: 0, 
