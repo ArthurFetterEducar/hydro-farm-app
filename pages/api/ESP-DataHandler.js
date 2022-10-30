@@ -33,7 +33,8 @@ async function ESP_API (req, res) {
         //         Pump_State: current_data.Pump_State 
         //     }
         // });
-        res.status(201).send({message: current_data.Temperature}); 
+
+        res.status(201).send({message: req.Temperature}); 
 
         // const sensorData = await prisma.teste2.create({
         //     data: dummy_data
