@@ -19,12 +19,12 @@ async function ESP_API (req, res) {
         console.log(req.body.Temperature);
         console.log(current_data.Temperature); 
 
-        res.status(200).json(current_data);
+        res.status(200).json(current_data.Temperature);
     } else if (req.method === "POST") { 
         current_data = req.body; 
         console.log(current_data.Temperature); 
 
-        res.status(201).send({message: "Data Posted Successfully"}); 
+        res.status(201).send({message: current_data.Temperature}); 
 
         // const sensorData = await prisma.teste2.create({
         //     data: dummy_data
