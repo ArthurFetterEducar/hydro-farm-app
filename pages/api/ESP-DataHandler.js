@@ -13,6 +13,8 @@ let current_data = {
     Pump_State: false 
 }; 
 
+let post_request = "12";
+
 async function ESP_API (req, res) {
     if(req.method === "GET") {
         console.log("Got It");
@@ -33,8 +35,9 @@ async function ESP_API (req, res) {
         //         Pump_State: current_data.Pump_State 
         //     }
         // });
-
-        res.status(201).send({message: req}); 
+        post_request = req;
+        
+        res.status(201).send({message: "Posted successfully"}); 
 
         // const sensorData = await prisma.teste2.create({
         //     data: dummy_data
