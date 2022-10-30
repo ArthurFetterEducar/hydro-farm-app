@@ -26,8 +26,8 @@ model teste2 {
   Temperature              Float?
   Humidity                 Float?
   Water_Level              BigInt?
-  Petier_Hot_Temperature   Float?
-  Petier_Hot_State         Boolean?
+  Peltier_Hot_Temperature  Float?
+  Peltier_Hot_State        Boolean?
   Peltier_Cold_Temperature Float?
   Peltier_Cold_State       Boolean?
   Pump_State               Boolean?
