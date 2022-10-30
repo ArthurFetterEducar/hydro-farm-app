@@ -30,7 +30,7 @@ async function ESP_API (req, res) {
         //         Temperature:27.0,
         //         Humidity:92.0,
         //         Water_Level:1,
-        //         Petier_Hot_Temperature:26.0,
+        //         Peltier_Hot_Temperature:26.0,
         //         Peltier_Hot_State:true,
         //         Peltier_Cold_Temperature:23.0,
         //         Peltier_Cold_State:true,
@@ -47,13 +47,13 @@ async function ESP_API (req, res) {
         const sensorData = await prisma.teste2.create({
             data: {
                 Temperature: current_data.Temperature,
-                Humidity: current_data.Humidity,          
-                Peltier_Hot_Temperature: current_data.Petier_Hot_Temperature, 
-                Peltier_Hot_State: current_data.Petier_Hot_State,
+                Humidity: current_data.Humidity,
+                Water_Level:current_data.Water_Level,
+                Petier_Hot_Temperature: current_data.Peltier_Hot_Temperature,
+                Peltier_Hot_State: current_data.Peltier_Hot_State,
                 Peltier_Cold_Temperature: current_data.Peltier_Cold_Temperature,
                 Peltier_Cold_State: current_data.Peltier_Cold_State,
-                Water_Level: current_data.Water_Level, 
-                Pump_State: current_data.Pump_State 
+                Pump_State: current_data.Pump_State
             }
         }); 
 
