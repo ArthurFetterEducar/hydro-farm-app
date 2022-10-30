@@ -11,19 +11,30 @@ let current_data = {
     Peltier_Cold_State: false,
     Water_Level: 0, 
     Pump_State: false 
-};
+}; 
 
 async function ESP_API (req, res) {
     if(req.method === "GET") {
         console.log("Got It");
-        console.log(req.body.Temperature);
-        console.log(current_data.Temperature); 
 
-        res.status(200).json(current_data.Temperature);
+        
+
+        res.status(200).json(current_data.body.Temperature);
     } else if (req.method === "POST") { 
         current_data = req.body; 
-        console.log(current_data.Temperature); 
 
+        // const sensorData = await prisma.teste2.create({
+        //     data: {
+        //         Temperature: current_data.Temperature,
+        //         Humidity: current_data.Humidity,          
+        //         Petier_Hot_Temperature: current_data.Petier_Hot_Temperature, 
+        //         Petier_Hot_State: current_data.Petier_Hot_State,
+        //         Peltier_Cold_Temperature: current_data.Peltier_Cold_Temperature,
+        //         Peltier_Cold_State: current_data.Peltier_Cold_State,
+        //         Water_Level: current_data.Water_Level, 
+        //         Pump_State: current_data.Pump_State 
+        //     }
+        // });
         res.status(201).send({message: current_data.Temperature}); 
 
         // const sensorData = await prisma.teste2.create({
