@@ -19,7 +19,7 @@ async function ESP_API (req, res) {
     if(req.method === "GET") {
         console.log("Got It");
 
-        res.status(200).json(post_request);
+        res.status(200).json(post_request.body);
     } else if (req.method === "POST") { 
         current_data = req.body; 
 
@@ -27,16 +27,16 @@ async function ESP_API (req, res) {
 
         const sensorData = await prisma.teste2.create({
             data: {
-                "Temperature":27,
-                "Humidity":92,
-                "Watel_Level":1,
-                "Peltier_Hot_Temperature":26,
-                "Peltier_Hot_State":1,
-                "Peltier_Cold_Temperature":23,
-                "Peltier_Cold_State":1,
-                "Pump_State":1
+                Temperature:27,
+                Humidity:92,
+                Watel_Level:1,
+                Peltier_Hot_Temperature:26,
+                Peltier_Hot_State:1,
+                Peltier_Cold_Temperature:23,
+                Peltier_Cold_State:1,
+                Pump_State:1
             } 
-        });
+        }); 
 
         //  const sensorData = await prisma.teste_tres.create({
         //     data: {
