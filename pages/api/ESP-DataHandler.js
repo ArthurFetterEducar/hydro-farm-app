@@ -25,24 +25,24 @@ async function ESP_API (req, res) {
 
         post_request = req;
 
-        // const sensorData = await prisma.teste2.create({
-        //     data: {
-        //         Temperature:27.0,
-        //         Humidity:92.0,
-        //         Water_Level:1,
-        //         Peltier_Hot_Temperature:26.0,
-        //         Peltier_Hot_State:true,
-        //         Peltier_Cold_Temperature:23.0,
-        //         Peltier_Cold_State:true,
-        //         Pump_State:true
-        //     } 
-        // }); 
-
-         const sensorData = await prisma.teste_tres.create({
+        const sensorData = await prisma.teste2.create({
             data: {
-                teste: "12"
+                Temperature:27.0,
+                Humidity:92.0,
+                Water_Level:1,
+                Peltier_Hot_Temperature:26.0,
+                Peltier_Hot_State:true,
+                Peltier_Cold_Temperature:23.0,
+                Peltier_Cold_State:true,
+                Pump_State:true
             } 
-         });
+        }); 
+
+        //  const sensorData = await prisma.teste_tres.create({
+        //     data: {
+        //         teste: "12"
+        //     } 
+        //  });
 
         // const sensorData = await prisma.teste2.create({
         //     data: {
