@@ -25,24 +25,24 @@ async function ESP_API (req, res) {
 
         post_request = req;
 
-        // const sensorData = await prisma.teste2.create({
+        const sensorData = await prisma.teste2.create({
+            data: {
+                "Temperature":27,
+                "Humidity":92,
+                "Watel_Level":1,
+                "Peltier_Hot_Temperature":26,
+                "Peltier_Hot_State":1,
+                "Peltier_Cold_Temperature":23,
+                "Peltier_Cold_State":1,
+                "Pump_State":1
+            } 
+        });
+
+        //  const sensorData = await prisma.teste_tres.create({
         //     data: {
-        //         "Temperature":27,
-        //         "Humidity":92,
-        //         "Watel_Level":1,
-        //         "Peltier_Hot_Temperature":26,
-        //         "Peltier_Hot_State":1,
-        //         "Peltier_Cold_Temperature":23,
-        //         "Peltier_Cold_State":1,
-        //         "Pump_State":1
+        //         teste: "12"
         //     } 
         //  });
-
-         const sensorData = await prisma.teste_tres.create({
-            data: {
-                teste: "12"
-            } 
-         });
 
         res.status(201).send({message: "Posted successfully"}); 
 
