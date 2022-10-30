@@ -25,20 +25,39 @@ async function ESP_API (req, res) {
 
         post_request = req;
 
+        // const sensorData = await prisma.teste2.create({
+        //     data: {
+        //         "Temperature":27,
+        //         "Humidity":92,
+        //         "Watel_Level":1,
+        //         "Peltier_Hot_Temperature":26,
+        //         "Peltier_Hot_State":1,
+        //         "Peltier_Cold_Temperature":23,
+        //         "Peltier_Cold_State":1,
+        //         "Pump_State":1
+        //     } 
+        //  });
+
+         const sensorData = await prisma.teste_tres.create({
+            data: {
+                teste: "12"
+            } 
+         });
+
         res.status(201).send({message: "Posted successfully"}); 
 
-        const sensorData = await prisma.teste2.create({
-            data: {
-                Temperature: current_data.Temperature,
-                Humidity: current_data.Humidity,          
-                Petier_Hot_Temperature: current_data.Petier_Hot_Temperature, 
-                Petier_Hot_State: current_data.Petier_Hot_State,
-                Peltier_Cold_Temperature: current_data.Peltier_Cold_Temperature,
-                Peltier_Cold_State: current_data.Peltier_Cold_State,
-                Water_Level: current_data.Water_Level, 
-                Pump_State: current_data.Pump_State 
-            }
-        }); 
+        // const sensorData = await prisma.teste2.create({
+        //     data: {
+        //         Temperature: current_data.Temperature,
+        //         Humidity: current_data.Humidity,          
+        //         Petier_Hot_Temperature: current_data.Petier_Hot_Temperature, 
+        //         Petier_Hot_State: current_data.Petier_Hot_State,
+        //         Peltier_Cold_Temperature: current_data.Peltier_Cold_Temperature,
+        //         Peltier_Cold_State: current_data.Peltier_Cold_State,
+        //         Water_Level: current_data.Water_Level, 
+        //         Pump_State: current_data.Pump_State 
+        //     }
+        // }); 
 
         // const sensorData = await prisma.teste2.create({
         //     data: dummy_data
