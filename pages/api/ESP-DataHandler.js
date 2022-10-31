@@ -19,7 +19,7 @@ async function ESP_API (req, res) {
     if(req.method === "GET") {
         console.log("Got It");
 
-        res.status(200).json(post_request.body);
+        res.status(200).json(current_data.Temperature);
     } else if (req.method === "POST") { 
         current_data = req.body; 
 
