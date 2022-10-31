@@ -63,7 +63,7 @@ async function ESP_API (req, res) {
                 "Humidity":92,
                 "Water_Level":1,
                 "Peltier_Hot_Temperature":26,
-                "Peltier_Hot_State":true,
+                "Peltier_Hot_State": "true",
                 "Peltier_Cold_Temperature":23,
                 "Peltier_Cold_State":true,
                 "Pump_State":true
