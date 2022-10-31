@@ -11,24 +11,24 @@ BigInt.prototype["toJSON"] = function () {
 
 /* Componente da pagina */
 function StatsPage( { data } ) {
-    let estado_bomba = data.Pump_State ? 'ligada' : 'desligada';
+    let estado_bomba = data[0].Pump_State ? 'ligada' : 'desligada';
     let estado_refrigeracao;
     let nivel_agua;
 
-    if (!data.Petier_Hot_State && !data.Peltier_Cold_State) {
+    if (!data[0].Petier_Hot_State && !data[0].Peltier_Cold_State) {
         estado_refrigeracao = 'desligado';
     }
-    else if (data.Petier_Hot_State){
+    else if (data[0].Petier_Hot_State){
         estado_refrigeracao = 'aquecendo a estufa';
     }
-    else if (data.Peltier_Cold_State) {
+    else if (data[0].Peltier_Cold_State) {
         estado_refrigeracao = 'resfriando a estufa';
     }
 
-    if (data.Water_Level > 0) {
+    if (data[0].Water_Level > 0) {
         nivel_agua = 'alto';
     }
-    else if (data.Water_Level < 0) {
+    else if (data[0].Water_Level < 0) {
         nivel_agua = 'baixo';
     }
     else {
@@ -56,7 +56,7 @@ function StatsPage( { data } ) {
                                 <h4 className={styles.stats_text}> Temperatura </h4>    
                             </div>
                             <div className={styles.data_box + ' col-4'}>
-                                <h4 className={styles.stats_text}> { data.Temperature + '°C'} </h4>    
+                                <h4 className={styles.stats_text}> { data[0].Temperature + '°C'} </h4>    
                             </div>
 
                             
@@ -69,7 +69,7 @@ function StatsPage( { data } ) {
                                 <h4 className={styles.stats_text}> Humidade </h4>
                             </div>
                             <div className={styles.data_box + ' col-4'}>
-                                <h4 className={styles.stats_text}> {data.Humidity + '%'} </h4>
+                                <h4 className={styles.stats_text}> {data[0].Humidity + '%'} </h4>
                             </div>
                         </div>
                         {/*/Segunda linha*/}
@@ -130,7 +130,7 @@ export async function getStaticProps() {
 
     console.log(data); 
 
-    return { props: {data}, revalidate: 2 };
+    return { props: { data }, revalidate: 2 };
 }
 
 export default StatsPage; 
