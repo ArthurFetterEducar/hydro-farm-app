@@ -119,7 +119,7 @@ function StatsPage( { data } ) {
 export async function getStaticProps() {
     const prisma = new PrismaClient();
 
-    const measure = await prisma.teste.findMany({
+    const measure = await prisma.teste2.findMany({
         orderBy: {
             id: "desc"
         }, 
