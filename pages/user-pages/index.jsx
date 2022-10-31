@@ -119,7 +119,13 @@ function StatsPage( { data } ) {
 export async function getStaticProps() {
     const prisma = new PrismaClient();
 
-    const measure = await prisma.teste.findFirst();
+    const measure = await prisma.teste.findMany({
+        orderBy: {
+            id: "desc"
+        }, 
+        teke: 1
+    });
+    
     const data = await JSON.parse(JSON.stringify(measure));
 
     console.log(data); 
