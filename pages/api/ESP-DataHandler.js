@@ -19,7 +19,7 @@ async function ESP_API (req, res) {
     if(req.method === "GET") {
         console.log("Got It");
 
-        res.status(200).json(current_data.Peltier_Cold_State);
+        res.status(200).json(current_data);
     } else if (req.method === "POST") { 
         current_data = req.body; 
 
@@ -41,26 +41,7 @@ async function ESP_API (req, res) {
             current_data.Pump_State = true;
         }
 
-        // const sensorData = await prisma.teste2.create({ // Funciona
-        //     data: {
-        //         Temperature:27.0,
-        //         Humidity:92.0,
-        //         Water_Level:1,
-        //         Peltier_Hot_Temperature:26.0,
-        //         Peltier_Hot_State:true,
-        //         Peltier_Cold_Temperature:23.0,
-        //         Peltier_Cold_State:true,
-        //         Pump_State:true
-        //     } 
-        // }); 
-
-        //  const sensorData = await prisma.teste_tres.create({ // Funciona
-        //     data: {
-        //         teste: "12"
-        //     } 
-        //  }); 
-
-        const sensorData = await prisma.teste2.create({ // Não funciona
+        const sensorData = await prisma.teste.create({ // Não funciona
             data: {
                 Temperature:                current_data.Temperature,
                 Humidity:                   current_data.Humidity,
@@ -72,19 +53,6 @@ async function ESP_API (req, res) {
                 Pump_State:                 current_data.Pump_State
             }
         }); 
-
-        // const sensorData = await prisma.teste2.create({ // Funciona 
-        //     data: {
-        //         "Temperature":27,
-        //         "Humidity":92,
-        //         "Water_Level":1,
-        //         "Peltier_Hot_Temperature":26,
-        //         "Peltier_Hot_State": true,
-        //         "Peltier_Cold_Temperature":23,
-        //         "Peltier_Cold_State":true,
-        //         "Pump_State":true
-        //     }
-        // }); 
 
         res.status(201).send({message: "Posted successfully"}); 
     }
