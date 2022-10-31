@@ -123,9 +123,9 @@ export async function getStaticProps() {
         orderBy: {
             id: "desc"
         }, 
-        teke: 1
+        take: 1
     });
-    
+
     const data = await JSON.parse(JSON.stringify(measure));
 
     console.log(data); 
