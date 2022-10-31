@@ -59,13 +59,14 @@ async function ESP_API (req, res) {
 
         const sensorData = await prisma.teste2.create({ // Não funciona
             data: {
-                "Temperature":27,
-                "Humidity":92,"Water_Level":1,
-                "Peltier_Hot_Temperature":26,
-                "Peltier_Hot_State":1,
-                "Peltier_Cold_Temperature":23,
-                "Peltier_Cold_State":0,
-                "Pump_State":1
+                Temperature:27,
+                Humidity:92,
+                Water_Level:1,
+                Peltier_Hot_Temperature:26,
+                Peltier_Hot_State:1,
+                Peltier_Cold_Temperature:23,
+                Peltier_Cold_State:0,
+                Pump_State:1
             }
         }); 
 
