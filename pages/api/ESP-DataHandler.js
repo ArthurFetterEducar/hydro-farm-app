@@ -23,7 +23,23 @@ async function ESP_API (req, res) {
     } else if (req.method === "POST") { 
         current_data = req.body; 
 
-        post_request = req;
+        if (current_data.Peltier_Hot_State == 0) {
+            current_data.Peltier_Hot_State = false;
+        } else {
+            current_data.Peltier_Hot_State = true;
+        }
+
+        if (current_data.Peltier_Cold_State == 0) {
+            current_data.Peltier_Cold_State = false;
+        } else {
+            current_data.Peltier_Cold_State = true;
+        }
+
+        if (current_data.Pump_State == 0) {
+            current_data.Pump_State = false;
+        } else {
+            current_data.Pump_State = true;
+        }
 
         // const sensorData = await prisma.teste2.create({ // Funciona
         //     data: {
@@ -44,31 +60,31 @@ async function ESP_API (req, res) {
         //     } 
         //  }); 
 
-        // const sensorData = await prisma.teste2.create({ // Não funciona
-        //     data: {
-        //         Temperature: current_data.Temperature,
-        //         Humidity: current_data.Humidity,
-        //         Water_Level: current_data.Water_Level,
-        //         Peltier_Hot_Temperature: current_data.Peltier_Hot_Temperature,
-        //         Peltier_Hot_State: current_data.Peltier_Hot_State,
-        //         Peltier_Cold_Temperature: current_data.Peltier_Cold_Temperature,
-        //         Peltier_Cold_State: current_data.Peltier_Cold_State,
-        //         Pump_State: current_data.Pump_State
-        //     }
-        // }); 
-
-        const sensorData = await prisma.teste2.create({ // Funciona 
+        const sensorData = await prisma.teste2.create({ // Não funciona
             data: {
-                "Temperature":27,
-                "Humidity":92,
-                "Water_Level":1,
-                "Peltier_Hot_Temperature":26,
-                "Peltier_Hot_State": "true",
-                "Peltier_Cold_Temperature":23,
-                "Peltier_Cold_State":true,
-                "Pump_State":true
+                Temperature:                current_data.Temperature,
+                Humidity:                   current_data.Humidity,
+                Water_Level:                current_data.Water_Level,
+                Peltier_Hot_Temperature:    current_data.Peltier_Hot_Temperature,
+                Peltier_Hot_State:          current_data.Peltier_Hot_State,
+                Peltier_Cold_Temperature:   current_data.Peltier_Cold_Temperature,
+                Peltier_Cold_State:         current_data.Peltier_Cold_State,
+                Pump_State:                 current_data.Pump_State
             }
         }); 
+
+        // const sensorData = await prisma.teste2.create({ // Funciona 
+        //     data: {
+        //         "Temperature":27,
+        //         "Humidity":92,
+        //         "Water_Level":1,
+        //         "Peltier_Hot_Temperature":26,
+        //         "Peltier_Hot_State": true,
+        //         "Peltier_Cold_Temperature":23,
+        //         "Peltier_Cold_State":true,
+        //         "Pump_State":true
+        //     }
+        // }); 
 
         res.status(201).send({message: "Posted successfully"}); 
     }
