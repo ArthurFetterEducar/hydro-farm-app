@@ -42,14 +42,14 @@ async function ESP_API (req, res) {
         //     data: {
         //         teste: "12"
         //     } 
-        //  });
+        //  }); 
 
         const sensorData = await prisma.teste2.create({ // Não funciona
             data: {
                 Temperature: current_data.Temperature,
                 Humidity: current_data.Humidity,
                 Water_Level: current_data.Water_Level,
-                Petier_Hot_Temperature: current_data.Peltier_Hot_Temperature,
+                Peltier_Hot_Temperature: current_data.Peltier_Hot_Temperature,
                 Peltier_Hot_State: current_data.Peltier_Hot_State,
                 Peltier_Cold_Temperature: current_data.Peltier_Cold_Temperature,
                 Peltier_Cold_State: current_data.Peltier_Cold_State,
