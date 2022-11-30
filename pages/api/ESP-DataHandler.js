@@ -41,7 +41,7 @@ async function ESP_API (req, res) {
             current_data.Pump_State = true;
         }
 
-        const sensorData = await prisma.teste2.create({ // Não funciona
+        const sensorData = await prisma.teste2.create({ 
             data: {
                 Temperature:                current_data.Temperature,
                 Humidity:                   current_data.Humidity,
